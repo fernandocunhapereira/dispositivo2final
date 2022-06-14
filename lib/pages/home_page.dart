@@ -51,7 +51,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Gerenciador de Projetos')),
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [Color.fromARGB(255, 7, 70, 243), Color.fromARGB(255, 141, 247, 247), Color.fromARGB(255, 184, 132, 248)]),
+            ),
+          ),
+        title: const Text('Gerenciador de Projetos')
+      ),
       body: const ProjetosListView(),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,

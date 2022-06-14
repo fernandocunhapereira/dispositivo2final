@@ -33,6 +33,14 @@ class _ProjetoDetalhePageState extends State<ProjetoDetalhePage> {
 
     return Scaffold(
       appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [Color.fromARGB(255, 7, 70, 243), Color.fromARGB(255, 141, 247, 247), Color.fromARGB(255, 184, 132, 248)]),
+            ),
+        ),
         title: Text(projeto.titulo),
       ),
       body: Container(
