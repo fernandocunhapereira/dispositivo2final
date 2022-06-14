@@ -149,25 +149,29 @@ class _TarefaCadastroPageState extends State<TarefaCadastroPage> {
 
         SizedBox(
           width: 110,
-          height: 40,
-          child: ElevatedButton(
-            style: ButtonStyle(
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
+          height: 45,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 10),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                  )
                 )
-              )
+              ),
+                onPressed: () => salvarTarefa(projeto.id, _usuario),
+                child: const Text(
+                  'Salvar',
+                  style: TextStyle(
+                    fontSize: 16,
+                  )
+                )
             ),
-              onPressed: () => salvarTarefa(projeto.id, _usuario),
-              child: const Text(
-                'Salvar',
-                style: TextStyle(
-                  fontSize: 16,
-                )
-              )
           ),
         )
-      ]),
+      ]
+      ),
     );
   }
 
