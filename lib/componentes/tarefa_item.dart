@@ -23,9 +23,10 @@ class TarefaItem extends StatelessWidget {
           subtitle: Text("Usuário: " + tarefa.usuario.nome),
           shape: RoundedRectangleBorder(
               side: const BorderSide(
-                  color: Color.fromARGB(255, 238, 229, 248), width: 1),
+                  color: Color.fromARGB(255, 39, 122, 185), width: 1),
               borderRadius: BorderRadius.circular(5)),
-          tileColor: const Color.fromARGB(255, 238, 229, 248),
+          //tileColor: const Color.fromARGB(255, 238, 229, 248),
+          tileColor: Color.fromARGB(255, 255, 255, 255),
           trailing: SizedBox(
               width: 100,
               child: Row(

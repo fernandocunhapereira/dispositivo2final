@@ -56,13 +56,13 @@ class _ProjetoCadastroPageState extends State<ProjetoCadastroPage> {
         title: Text(title),
       ),
       body: Column(children: <Widget>[
-        Card(
+        /*Column(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             elevation: 4,
             margin: const EdgeInsets.all(10),
             color: const Color.fromARGB(255, 238, 229, 248),
-            child: Column(children: <Widget>[
+            child:*/ Column(children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
@@ -70,6 +70,13 @@ class _ProjetoCadastroPageState extends State<ProjetoCadastroPage> {
                   decoration: const InputDecoration(
                     labelText: 'Título',
                     border: OutlineInputBorder(),
+                    prefixIcon: Align(
+                        widthFactor: 1.0,
+                        heightFactor: 1.0,
+                        child: Icon(
+                          Icons.title,
+                        ),
+                    ),
                   ),
                 ),
               ),
@@ -80,18 +87,34 @@ class _ProjetoCadastroPageState extends State<ProjetoCadastroPage> {
                   decoration: const InputDecoration(
                     labelText: 'Descricao',
                     border: OutlineInputBorder(),
+                    prefixIcon: Align(
+                      widthFactor: 1.0,
+                      heightFactor: 1.0,
+                      child: Icon(
+                        Icons.text_snippet_outlined,
+                      ),
+                    ),
                   ),
                 ),
               ),
               StatefulBuilder(
                 builder: (_context, _setState) {
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    //padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(top:8, left:8, right:8, bottom: 40),
                     child: DateTimeField(
                         mode: DateTimeFieldPickerMode.date,
                         decoration: const InputDecoration(
                             labelText: 'Data de Entrega',
-                            border: OutlineInputBorder()),
+                            border: OutlineInputBorder(),
+                            prefixIcon: Align(
+                              widthFactor: 1.0,
+                              heightFactor: 1.0,
+                              child: Icon(
+                                Icons.calendar_month,
+                              ),
+                            ),
+                        ),
                         selectedDate: _dataSelecionada,
                         onDateSelected: (DateTime value) {
                           _setState(() {
@@ -101,20 +124,38 @@ class _ProjetoCadastroPageState extends State<ProjetoCadastroPage> {
                   );
                 },
               ),
-            ])),
+            ]),
+          //),
         // Divider(
         //   height: 20,
         // ),
         // ElevatedButton(
         //     onPressed: _showDatePicker, child: Text('Prazo Entrega')),
-        const Divider(
+        /*const Divider(
           height: 20,
+        ),*/
+        SizedBox(
+          width: 110,
+          height: 40,
+          child: ElevatedButton(
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                )
+              )
+            ),
+              onPressed: () {
+                salvarProjeto(projeto);
+              },
+              child: const Text(
+                'Salvar',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              )
+          ),
         ),
-        ElevatedButton(
-            onPressed: () {
-              salvarProjeto(projeto);
-            },
-            child: const Text('Salvar')),
 
         /*
         TextField(

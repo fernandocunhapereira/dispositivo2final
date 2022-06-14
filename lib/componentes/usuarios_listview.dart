@@ -21,6 +21,7 @@ class _UsuarioListViewState extends State<UsuarioListView> {
     //_controller.start();
 
     return ListView.separated(
+      padding: EdgeInsets.all(15),
       itemCount: _controller.usuarios.length,
       itemBuilder: (ctx, index) {
         return Column(
@@ -28,15 +29,23 @@ class _UsuarioListViewState extends State<UsuarioListView> {
             ListTile(
               leading: CircleAvatar(
                 backgroundColor: Theme.of(context).colorScheme.secondary,
-                child: Text('${_controller.usuarios[index].id}'),
+                child: 
+                /*Text('${_controller.usuarios[index].id}'),*/
+                ClipRRect(
+                                //child: Image.asset('profile-generic.png'),
+                  child: Icon (
+                    Icons.account_circle, 
+                    size: 30,
+                  ),
+                ),
               ),
               title: Text(_controller.usuarios[index].nome),
               subtitle: Text(_controller.usuarios[index].email),
               shape: RoundedRectangleBorder(
                   side: const BorderSide(
-                      color: Color.fromARGB(255, 238, 229, 248), width: 1),
+                      color: Color.fromARGB(255, 39, 122, 185), width: 1),
                   borderRadius: BorderRadius.circular(5)),
-              tileColor: const Color.fromARGB(255, 238, 229, 248),
+              tileColor: Color.fromARGB(255, 255, 255, 255),
               trailing: SizedBox(
                   width: 100,
                   child: Row(
@@ -46,7 +55,7 @@ class _UsuarioListViewState extends State<UsuarioListView> {
                           updateCliente(_controller.usuarios[index]);
                         },
                         icon: const Icon(Icons.edit),
-                        color: Colors.orange,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                       IconButton(
                         onPressed: () {
@@ -54,7 +63,7 @@ class _UsuarioListViewState extends State<UsuarioListView> {
                               .deleteUsuario(_controller.usuarios[index]);
                         },
                         icon: const Icon(Icons.delete),
-                        color: Colors.red,
+                        color: Color.fromARGB(255, 183, 31, 20),
                       ),
                     ],
                   )),

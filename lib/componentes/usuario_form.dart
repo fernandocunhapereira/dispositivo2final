@@ -51,7 +51,8 @@ class UsuarioForm extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             elevation: 4,
             margin: const EdgeInsets.all(10),
-            color: const Color.fromARGB(255, 238, 229, 248),
+            //color: const Color.fromARGB(255, 238, 229, 248),
+            color: Color.fromARGB(255, 119, 73, 171),
             child: Column(children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),

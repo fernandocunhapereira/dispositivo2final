@@ -41,7 +41,10 @@ class _ProjetoDetalhePageState extends State<ProjetoDetalhePage> {
           children: <Widget>[
             Text(
               projeto.descricao,
-              style: Theme.of(context).textTheme.headline6,
+              //style: Theme.of(context).textTheme.headline6,
+              style: TextStyle(backgroundColor: Colors.white,
+                fontSize: 18
+              ),
             ),
             const Divider(
               height: 20,
@@ -78,8 +81,21 @@ class _ProjetoDetalhePageState extends State<ProjetoDetalhePage> {
               ),
             ),
             ElevatedButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                  )
+                )
+              ),
                 onPressed: cadastrarTarefa /*cadastrarTarefa*/,
-                child: const Text('Cadastrar Tarefa'))
+                child: const Text(
+                  'Cadastrar Tarefa',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                )
+            )
           ],
         ),
       ),
