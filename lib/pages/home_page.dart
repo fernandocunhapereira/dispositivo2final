@@ -63,6 +63,10 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Gerenciador de Projetos')
       ),
       body: const ProjetosListView(),
+
+
+
+/*
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
         selectedItemColor: Theme.of(context).colorScheme.secondary,
@@ -77,6 +81,32 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.person_add), label: 'Usuários'),
         ],
       ),
+*/
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [Color.fromARGB(255, 7, 70, 243), Color.fromARGB(255, 141, 247, 247), Color.fromARGB(255, 184, 132, 248)]),
+        ),
+        child: BottomNavigationBar(
+          onTap: _selectScreen,
+          selectedItemColor: Theme.of(context).colorScheme.secondary,
+          unselectedItemColor: Colors.white,
+          currentIndex: _indexSelectedScreen,
+          //backgroundColor: Theme.of(context).colorScheme.primary,
+          backgroundColor: Colors.transparent,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Projetos'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.construction), label: 'Cadastrar Projeto'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person_add), label: 'Usuários'),
+          ],
+        ),
+      ),
+
+
     );
   }
 }
