@@ -46,36 +46,44 @@ class UsuarioForm extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            elevation: 4,
-            margin: const EdgeInsets.all(10),
-            //color: const Color.fromARGB(255, 238, 229, 248),
-            color: Color.fromARGB(255, 119, 73, 171),
-            child: Column(children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  controller: _usuarioControllerNome,
-                  decoration: const InputDecoration(
-                    labelText: 'Nome',
-                    border: OutlineInputBorder(),
+          Column(children: <Widget>[
+            Padding(
+              //padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(bottom: 8.0, left: 15, right: 15, top: 20),
+              child: TextField(
+                controller: _usuarioControllerNome,
+                decoration: const InputDecoration(
+                  prefixIcon: Align(
+                    widthFactor: 1.0,
+                    heightFactor: 1.0,
+                    child: Icon(
+                      Icons.account_box,
+                    ),
                   ),
+                  labelText: 'Nome',
+                  border: OutlineInputBorder(),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  controller: _usuarioControllerEmail,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
+            ),
+            Padding(
+              //padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(bottom: 8.0, left: 15, right: 15, top: 8),
+              child: TextField(
+                controller: _usuarioControllerEmail,
+                decoration: const InputDecoration(
+                  prefixIcon: Align(
+                    widthFactor: 1.0,
+                    heightFactor: 1.0,
+                    child: Icon(
+                      Icons.email,
+                    ),
                   ),
+                  labelText: 'Email',
+                  border: OutlineInputBorder(),
                 ),
               ),
-            ]),
-          ),
+            ),
+          ]),
         ],
       ),
     );

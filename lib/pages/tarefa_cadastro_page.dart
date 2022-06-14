@@ -53,6 +53,13 @@ class _TarefaCadastroPageState extends State<TarefaCadastroPage> {
                 child: TextField(
                   controller: _tarefaControllerDescricao,
                   decoration: const InputDecoration(
+                    prefixIcon: Align(
+                      widthFactor: 1.0,
+                      heightFactor: 1.0,
+                      child: Icon(
+                        Icons.text_snippet_outlined,
+                      ),
+                    ),
                     labelText: 'Descricao da tarefa',
                     border: OutlineInputBorder(),
                   ),

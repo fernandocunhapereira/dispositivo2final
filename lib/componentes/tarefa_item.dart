@@ -44,7 +44,8 @@ class TarefaItem extends StatelessWidget {
                           .deleteTarefa(tarefa);
                     },
                     icon: const Icon(Icons.delete),
-                    color: Colors.red,
+                    //color: Colors.red,
+                    color: Color.fromARGB(255, 183, 31, 20),
                   ),
                 ],
               )),
