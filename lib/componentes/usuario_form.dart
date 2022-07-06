@@ -1,13 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:un2projeto/controller/usuariocontroller.dart';
 
+import '../models/foto_usuario.dart';
 import '../models/usuario.dart';
+import 'image_input.dart';
 
 class UsuarioForm extends StatelessWidget {
   UsuarioForm({Key? key}) : super(key: key);
   final _usuarioControllerNome = TextEditingController();
   final _usuarioControllerEmail = TextEditingController();
+  File? _pickedImage;
 
   void _loadFormData(Usuario usuario) {
     if (usuario.id != 0) {
@@ -16,10 +21,15 @@ class UsuarioForm extends StatelessWidget {
     }
   }
 
+  void _selectImage(File? pickedImage) {
+    _pickedImage = pickedImage;
+  }
+
   @override
   Widget build(BuildContext context) {
     final Usuario usuario =
         ModalRoute.of(context)!.settings.arguments as Usuario;
+    FotoUsuario fotoUsuario = new FotoUsuario();
     final title = usuario.id == 0 ? 'Cadastrar Usuário' : 'Alterar Usuário';
 
     _loadFormData(usuario);
@@ -40,6 +50,8 @@ class UsuarioForm extends StatelessWidget {
               onPressed: () {
                 usuario.nome = _usuarioControllerNome.text;
                 usuario.email = _usuarioControllerEmail.text;
+                fotoUsuario.foto = _pickedImage!;
+                fotoUsuario.id = usuario.id;
                 if (usuario.id == 0) {
                   Provider.of<UsuarioController>(context, listen: false)
                       .addUsuario(usuario);
@@ -91,6 +103,15 @@ class UsuarioForm extends StatelessWidget {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0, left: 15, right: 15, top: 8),
+              child: Column(
+                children: [
+                    SizedBox(height: 10),
+                    ImageInput(this._selectImage),
+                ],
+              ),
+            )
           ]),
         ],
       ),

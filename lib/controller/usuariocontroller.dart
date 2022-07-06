@@ -26,6 +26,7 @@ class UsuarioController with ChangeNotifier {
   Future addUsuario(Usuario usuario) async {
     Usuario newUser = await repository.addUsuario(usuario);
     usuarios.add(newUser);
+    
     notifyListeners();
   }
 
